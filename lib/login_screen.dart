@@ -174,16 +174,6 @@ class LoginScreenState extends State<LoginScreen>
                     textEditingController: password,
                     focusNode: passwordFocus,
                   ),
-                  const SizedBox(
-                    height: 22,
-                  ),
-                  TextFieldWidget(
-                    hintText: '',
-                    obscureText: true,
-                    prefixIconData: Icons.wifi_tethering_outlined,
-                    textEditingController: password,
-                    focusNode: passwordFocus,
-                  ),
                   InkWell(
                     onTap: () {},
                     child: Container(
