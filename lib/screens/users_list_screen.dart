@@ -1,37 +1,15 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_xmpp_login/model/contact.dart';
-import 'package:flutter_xmpp_login/screens/login_screen.dart';
-import 'package:flutter_xmpp_login/screens/user_chat_screen.dart';
-import 'package:xml/xml.dart' as xml;
-import 'package:xml/xml.dart';
+import 'package:xmpp_chat_demo_flutter/screens/login_screen.dart';
+import 'package:xmpp_chat_demo_flutter/screens/user_chat_screen.dart';
 
 class UsersListScreen extends StatefulWidget {
-  //final XmppConnection xmppConnection;
-
-  const UsersListScreen({Key? key})
-      : super(key: key);
+  const UsersListScreen({super.key});
 
   @override
   _UsersListScreenState createState() => _UsersListScreenState();
 }
 
 class _UsersListScreenState extends State<UsersListScreen> {
-  Future<List<Contact>> getListFromXML(BuildContext context) async {
-    String xmlString = await DefaultAssetBundle.of(context)
-        .loadString("assets/data/contacts.xml");
-
-    var raw = XmlDocument.parse(xmlString);
-    var elements = raw.findAllElements('contact');
-
-    return elements
-        .map((e) => Contact(e.findAllElements('name').first.text,
-            e.findAllElements('id').first.text))
-        .toList();
-  }
-
-
   @override
   void initState() {
     getMyChats();
@@ -39,7 +17,9 @@ class _UsersListScreenState extends State<UsersListScreen> {
   }
 
   Future getMyChats() async {
-    List<dynamic> ls = await LoginScreenState.flutterXmpp.getMyRosters() as List<dynamic>;
+    // sample data : ['John:1234567890', 'Alice:9876543210', 'Bob:555-5555'];
+    List<dynamic> ls =
+        await LoginScreenState.flutterXmpp.getMyRosters() as List<dynamic>;
     return ls;
   }
 
@@ -55,22 +35,23 @@ class _UsersListScreenState extends State<UsersListScreen> {
           return ListView.builder(
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (BuildContext context) {
-                                        return UserChatScreen(
-                                          userJID: contacts[index].substring(contacts[index].indexOf(':')),
-                                          userName: contacts[index].substring(0,
-                                              contacts[index].indexOf(':')),
-                                        );
-                                      },
-                                    ),
-                                  );
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return UserChatScreen(
+                            userJID: contacts[index]
+                                .substring(contacts[index].indexOf(':')),
+                            userName: contacts[index]
+                                .substring(0, contacts[index].indexOf(':')),
+                          );
+                        },
+                      ),
+                    );
                   },
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     margin: const EdgeInsets.symmetric(vertical: 14),
                     child: Column(
                       children: [
@@ -84,8 +65,8 @@ class _UsersListScreenState extends State<UsersListScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  contacts[index].substring(0,
-                                      contacts[index].indexOf(':')),
+                                  contacts[index].substring(
+                                      0, contacts[index].indexOf(':')),
                                   style: const TextStyle(fontSize: 20),
                                 ),
                                 const SizedBox(
