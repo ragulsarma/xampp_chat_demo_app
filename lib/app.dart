@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xmpp_chat_demo_flutter/login_screen.dart';
+import 'package:xmpp_chat_demo_flutter/screens/login_screen.dart';
 
 class XmppApp extends StatefulWidget {
   const XmppApp({Key? key}) : super(key: key);

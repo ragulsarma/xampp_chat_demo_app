@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:xmpp_chat_demo_flutter/Animation/AnimationBuildLogin.dart';
 import 'package:xmpp_chat_demo_flutter/constants/ColorGlobal.dart';
 import 'package:xmpp_chat_demo_flutter/constants/TextField.dart';
+import 'package:xmpp_chat_demo_flutter/screens/dashboard.dart';
 import 'package:xmpp_plugin/error_response_event.dart';
 import 'package:xmpp_plugin/models/chat_state_model.dart';
 import 'package:xmpp_plugin/models/connection_event.dart';
@@ -80,8 +81,12 @@ class LoginScreenState extends State<LoginScreen>
     try {
       final auth = {
         "user_jid": "",
+
+        ///TODO: add your account user id
         "password": "",
-        "host": "xmpphost",
+
+        ///TODO: add your account password
+        "host": "xmpphost", //add your host as well
         "port": '5222',
         "nativeLogFilePath": "filepath",
         "requireSSLConnection": false,
@@ -245,8 +250,7 @@ class LoginScreenState extends State<LoginScreen>
                                         ],
                                         border: Border.all(
                                           width: 2,
-                                          color: ColorGlobal
-                                              .colorPrimaryDark, //                   <--- border width here
+                                          color: ColorGlobal.colorPrimaryDark,
                                         ),
                                         color: ColorGlobal.whiteColor,
                                         borderRadius: const BorderRadius.all(
@@ -292,6 +296,15 @@ class LoginScreenState extends State<LoginScreen>
     log('onConnectionEvents ~~>>${connectionEvent.toJson()}');
     connectionStatus = connectionEvent.type!.name;
     print('------------ $connectionStatus');
+    if (connectionStatus == 'authenticated') {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) {
+            return const DashboardScreen();
+          },
+        ),
+      );
+    }
   }
 
   @override
