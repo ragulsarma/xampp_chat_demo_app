@@ -144,7 +144,7 @@ class _UserChatScreenState extends State<UserChatScreen>
                     ),
                     padding: const EdgeInsets.all(16),
                     child: Text(
-                      incomingMsgList[index].time ?? '',
+                      incomingMsgList[index].body ?? '', // .time
                       style: const TextStyle(fontSize: 15),
                     ),
                   ),

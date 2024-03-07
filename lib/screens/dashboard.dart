@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xmpp_chat_demo_flutter/screens/groups_list_screen.dart';
 import 'package:xmpp_chat_demo_flutter/screens/login_screen.dart';
 import 'package:xmpp_chat_demo_flutter/screens/users_list_screen.dart';
 
@@ -50,7 +51,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Center(
           child: _selectedIndex == 0
               ? const UsersListScreen()
-              : Container() // _pages.elementAt(_selectedIndex), //New
+              :  const GroupsListScreen()
           ),
     );
   }
