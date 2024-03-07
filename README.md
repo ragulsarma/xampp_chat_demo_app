@@ -1,16 +1,35 @@
-# xmpp_chat_demo_flutter
+# Flutter XMPP Chat Demo Application
 
-A new Flutter project.
+Welcome to the Flutter XMPP Chat Application repository! This Flutter mobile application allows users to connect to an XMPP server, login with their account details, and chat with other users one-on-one or in group chats.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+### 1. User Authentication
+- Users can login with their XMPP server account details securely.
 
-A few resources to get you started if this is your first Flutter project:
+### 2. Contact List
+- Upon successful login, users can view a list of all available users to chat with.
+- Users can select any user from the list to start a one-on-one chat.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 3. One-on-One Chat
+- Users can initiate and participate in one-on-one chats with other users.
+- The chat interface supports sending and receiving text messages in real-time.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 4. Group Chat
+- Users can create group chats and invite other users to join the group.
+- Group chats support multiple participants and real-time messaging.
+
+### 5. Local Storage
+- Created group chats are stored locally on the device.
+- Users can view their existing groups and resume group chats even after closing the app.
+
+### 6. Logout Option
+- Users can securely logout from their account and exit the application.
+
+Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/ragulsarma/xampp_chat_demo_app/assets/76203518/02bc798e-c0c6-4c6a-af2f-a8cb1909123d" alt="Screenshot 1" style="width: 45%;" />
+  <img src="https://github.com/ragulsarma/xampp_chat_demo_app/assets/76203518/ed86adf0-4281-40d7-bff7-db87581f243a" alt="Screenshot 2" style="width: 45%;" />
+</div>
+
